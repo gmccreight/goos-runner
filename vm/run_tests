@@ -1,0 +1,54 @@
+#!/bin/bash
+
+function remove_class_files() {
+  find /my-goos-code -name "*.class" -exec rm {} \;
+}
+
+function run_command() {
+  cmd=$1
+  echo $cmd
+  $cmd
+}
+
+function run_tests_in() {
+
+  dir=$1
+  namespace=$2
+
+  for i in `find $dir -name "*Test.java"`; do
+    run_command "javac $i"
+  done
+
+  cd $dir
+
+  classes_to_test=""
+  for i in `ls *Test.java | sed "s/\\.java//"`; do
+    classes_to_test="$classes_to_test $namespace.$i"
+  done
+
+  cd /my-goos-code
+
+  run_command "java org.junit.runner.JUnitCore $classes_to_test"
+}
+
+(
+  cd /my-goos-code
+
+  remove_class_files
+
+  export CLASSPATH="."
+
+  for i in `find /my-goos-code/lib | grep ".jar"`; do
+    CLASSPATH=$CLASSPATH:$i
+  done
+
+  CLASSPATH=$CLASSPATH:/my-goos-code/src
+  CLASSPATH=$CLASSPATH:/my-goos-code/test/end-to-end
+  CLASSPATH=$CLASSPATH:/my-goos-code/test/unit
+
+  run_tests_in /my-goos-code/test/unit/test/auctionsniper test.auctionsniper
+  # run_tests_in /my-goos-code/test/end-to-end/test/endtoend/auctionsniper test.endtoend.auctionsniper
+
+  remove_class_files
+
+)
