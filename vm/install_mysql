@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo /bin/bash -c "export DEBIAN_FRONTEND=noninteractive; apt-get install mysql-server -y"
+sudo apt-get install mysql-client libmysqlclient-dev -y

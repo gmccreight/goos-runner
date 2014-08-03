@@ -47,7 +47,7 @@ function run_tests_in() {
   CLASSPATH=$CLASSPATH:/goos/test/unit
 
   run_tests_in /goos/test/unit/test/auctionsniper test.auctionsniper
-  # run_tests_in /goos/test/end-to-end/test/endtoend/auctionsniper test.endtoend.auctionsniper
+  run_tests_in /goos/test/end-to-end/test/endtoend/auctionsniper test.endtoend.auctionsniper
 
   remove_class_files
 

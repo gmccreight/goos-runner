@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# At the moment, this installs and runs openfire, however, I can't connect to
+# it.  I believe I need to tell it to use mysql, somehow.
+wget http://download.igniterealtime.org/openfire/openfire_3_9_3.tar.gz
+tar -xvzf openfire_3_*.tar.gz
+rm openfire_3_*.tar.gz
+sudo mv openfire /opt/
+sudo ln -s /opt/openfire/bin/openfire /etc/init.d/
+service openfire start
+
+# This correctly creats a database, openfire_dev, however, openfire is not
+# actually using it, since I haven't configured it to use the mysql driver
+# anywhere, yet.
+mysqladmin -uroot create openfire_dev
+echo "grant all privileges on openfire_dev.* to myopenfireuser@localhost identified by 'myopenfirepass' ; flush privileges" | mysql -uroot openfire_dev 
+cat /opt/openfire/resources/database/openfire_mysql.sql | mysql -uroot openfire_dev
