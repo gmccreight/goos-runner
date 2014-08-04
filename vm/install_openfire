@@ -9,9 +9,10 @@ sudo mv openfire /opt/
 sudo ln -s /opt/openfire/bin/openfire /etc/init.d/
 service openfire start
 
-# This correctly creats a database, openfire_dev, however, openfire is not
-# actually using it, since I haven't configured it to use the mysql driver
-# anywhere, yet.
-mysqladmin -uroot create openfire_dev
-echo "grant all privileges on openfire_dev.* to myopenfireuser@localhost identified by 'myopenfirepass' ; flush privileges" | mysql -uroot openfire_dev 
-cat /opt/openfire/resources/database/openfire_mysql.sql | mysql -uroot openfire_dev
+# Copy the files that openfire would generate diffs for in its manual installation.
+(
+  cd openfire_files_after_setup
+  for file in `find . -type f`; do
+    cp -a $file /opt/openfire/$file
+  done
+)

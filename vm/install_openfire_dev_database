@@ -1,0 +1,14 @@
+#!/bin/bash
+
+mysqladmin -uroot --force drop openfire_dev
+mysqladmin -uroot create openfire_dev
+
+# # This is how you got the original setup that is saved in:
+# # openfire_dev_db_before_setup.sql
+# echo "grant all privileges on openfire_dev.* to myopenfireuser@localhost identified by 'myopenfirepass' ; flush privileges" | mysql -uroot openfire_dev 
+# cat /opt/openfire/resources/database/openfire_mysql.sql | mysql -uroot openfire_dev
+
+# Then we did the manual installation using port 9090 and ended up with
+# the values in openfire_dev_db_after_setup.sql, so we'll go ahead and load
+# that directly.
+cat ./openfire_dev_db_after_setup.sql | mysql -uroot openfire_dev
