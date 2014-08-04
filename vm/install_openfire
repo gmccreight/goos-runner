@@ -9,10 +9,11 @@ sudo mv openfire /opt/
 sudo ln -s /opt/openfire/bin/openfire /etc/init.d/
 service openfire start
 
-# Copy the files that openfire would generate diffs for in its manual installation.
-(
-  cd openfire_files_after_setup
-  for file in `find . -type f`; do
-    cp -a $file /opt/openfire/$file
-  done
-)
+# # Copy the files that openfire would generate diffs for in its manual installation.
+# (
+#   cd openfire_files_after_setup
+#   for file in `find . -type f`; do
+#     cp -a $file /opt/openfire/$file
+#   done
+# )
+

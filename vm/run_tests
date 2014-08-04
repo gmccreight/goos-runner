@@ -47,7 +47,13 @@ function run_tests_in() {
   CLASSPATH=$CLASSPATH:/goos/test/unit
 
   run_tests_in /goos/test/unit/test/auctionsniper test.auctionsniper
+
+  # Run the end-to-end tests in the X Virtual FrameBuffer, since they need to
+  # have GUI tests.
+  sudo Xvfb :10 -ac >/dev/null 2>/dev/null &
+  export DISPLAY=:10
   run_tests_in /goos/test/end-to-end/test/endtoend/auctionsniper test.endtoend.auctionsniper
+  kill $! # kill the backgrounded Xvfb
 
   remove_class_files
 
