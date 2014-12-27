@@ -58,7 +58,9 @@ function run_tests_in() {
   run_tests_in /goos/test/end-to-end/test/endtoend/auctionsniper \
     test.endtoend.auctionsniper
 
-  kill $! # kill the backgrounded Xvfb
+  if [ ! $USE_ACTUAL_X11 ]; then
+    kill $! # kill the backgrounded Xvfb
+  fi
 
   remove_class_files
 
