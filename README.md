@@ -42,5 +42,11 @@ the web-based setup:
 
 ### Debugging
 
-On a Mac, install xQuartz, to run X11, then, to check that it works, run X11
+On the host machine, install and run X11, then
 in the host, then SSH into Vagrant and run xclock.
+
+    ( cd vm; vagrant ssh -c "xclock" )
+
+If that works, then you can run the tests using the host's X11 server.
+
+    ( cd vm; vagrant ssh -c "cd /goos/vm/; USE_ACTUAL_X11=1 ./run_tests" )

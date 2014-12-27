@@ -48,11 +48,16 @@ function run_tests_in() {
 
   run_tests_in /goos/test/unit/test/auctionsniper test.auctionsniper
 
-  # Run the end-to-end tests in the X Virtual FrameBuffer, since they need to
-  # have GUI tests.
-  sudo Xvfb :10 -ac >/dev/null 2>/dev/null &
-  export DISPLAY=:10
-  run_tests_in /goos/test/end-to-end/test/endtoend/auctionsniper test.endtoend.auctionsniper
+  if [ ! $USE_ACTUAL_X11 ]; then
+    # Run the end-to-end tests in the X Virtual FrameBuffer, since they need to
+    # have GUI tests and in this conditional we do not have an X11 server.
+    sudo Xvfb :10 -ac >/dev/null 2>/dev/null &
+    export DISPLAY=:10
+  fi
+
+  run_tests_in /goos/test/end-to-end/test/endtoend/auctionsniper \
+    test.endtoend.auctionsniper
+
   kill $! # kill the backgrounded Xvfb
 
   remove_class_files
