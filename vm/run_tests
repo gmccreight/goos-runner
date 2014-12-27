@@ -59,7 +59,7 @@ function run_tests_in() {
     test.endtoend.auctionsniper
 
   if [ ! $USE_ACTUAL_X11 ]; then
-    kill $! # kill the backgrounded Xvfb
+    kill $! 2>/dev/null # kill the backgrounded Xvfb if it is still running
   fi
 
   remove_class_files
