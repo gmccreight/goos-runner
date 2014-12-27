@@ -40,12 +40,21 @@ the web-based setup:
     * email: sniper@localhost (this may be important)
     * password: sniper
 
-### Debugging
+### Debugging (on Mac Yosemite)
 
-On the host machine, install and run X11, then
-in the host, then SSH into Vagrant and run xclock.
+On the host machine, install XQuartz.
+
+After installation, and before starting it, enable the test extensions.  XTEST
+is required by the end-to-end tests, and enabling the test extensions makes
+it available.
+
+    defaults write org.macosforge.xquartz.X11 enable_test_extensions -bool yes
+
+in the host, then SSH into Vagrant and run xclock to see that the X11 server
+connection is working.
 
     ( cd vm; vagrant ssh -c "xclock" )
+
 
 If that works, then you can run the tests using the host's X11 server.
 
