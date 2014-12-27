@@ -2,5 +2,6 @@
 
 ./install_java
 ./install_mysql
+./install_xvfb
 ./install_openfire
 ./install_openfire_dev_database
