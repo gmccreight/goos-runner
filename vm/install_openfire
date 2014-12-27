@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# At the moment, this installs and runs openfire, however, I can't connect to
-# it.  I believe I need to tell it to use mysql, somehow.
 wget http://download.igniterealtime.org/openfire/openfire_3_9_3.tar.gz
 tar -xvzf openfire_3_*.tar.gz
 rm openfire_3_*.tar.gz
