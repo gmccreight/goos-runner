@@ -17,7 +17,8 @@ in your web browser.
 
     vagrant ssh -- -N -L 9090:localhost:9090
 
-In the web-based setup
+Now, on the host machine, open a link to http://localhost:9090/ and complete
+the web-based setup:
 
 * Use English
 * Use the default server settings
@@ -27,7 +28,8 @@ In the web-based setup
     * user: myopenfireuser
     * pass: myopenfirepass
 * Set up the admin user
-    * Email: admin@example.com (but login will actually be admin, not admin@example.com)
+    * Email: admin@example.com (but login will actually be admin,
+      not admin@example.com)
     * Password: adminpass
 * Create the sniper user
     * name: sniper
@@ -36,5 +38,5 @@ In the web-based setup
 
 ### Debugging
 
-On a Mac, install xQuartz, to run x11, then, to check that it works, run X11
-in the host, then ssh into vagrant and run xclock.
+On a Mac, install xQuartz, to run X11, then, to check that it works, run X11
+in the host, then SSH into Vagrant and run xclock.
