@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mysqladmin -uroot --force drop openfire_dev
+mysqladmin -uroot --force drop openfire_dev 2>/dev/null
 mysqladmin -uroot create openfire_dev
 
 # This is how you got the original setup that is saved in:
