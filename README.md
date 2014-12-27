@@ -31,8 +31,12 @@ the web-based setup:
     * Email: admin@example.com (but login will actually be admin,
       not admin@example.com)
     * Password: adminpass
+* Set up the auction-item-54321 user
+    * username: auction-item-54321
+    * email: empty
+    * password: auction
 * Create the sniper user
-    * name: sniper
+    * username: sniper
     * email: sniper@localhost (this may be important)
     * password: sniper
 
