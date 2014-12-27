@@ -10,8 +10,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
   config.vm.synced_folder "../", "/goos"
 
-  # This might enable you to run the end-to-end tests to see how they work.
-  # I'm not sure yet.
-  config.ssh.forward_x11 = true
+  if ENV["USE_ACTUAL_X11"] == "1"
+    # This enables you to run the end-to-end tests and see what is happening in
+    # your host.  See the "Debugging (on Mac Yosemite)" section in the README.md
+    # To use this, you have to start vagrant like so:
+    # USE_ACTUAL_X11=1 vagrant up
+    config.ssh.forward_x11 = true
+  end
 
 end
