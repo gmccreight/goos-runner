@@ -33,3 +33,8 @@ In the web-based setup
     * name: sniper
     * email: sniper@localhost (this may be important)
     * password: sniper
+
+### Debugging
+
+On a Mac, install xQuartz, to run x11, then, to check that it works, run X11
+in the host, then ssh into vagrant and run xclock.

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# These are installed so you can debug X11 issues by running xclock and seeing
+# it in the host machine.
+
+# Ultimately, when everything is working swimmingly, it might make sense to
+# remove this installer, since we won't need to debug X11 stuff anymore and
+# it is a little confusing.
+
+sudo apt-get install x11-apps -y
