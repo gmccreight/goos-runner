@@ -33,7 +33,7 @@ the web-based setup:
     * Password: adminpass
 * Set up the auction-item-54321 user
     * username: auction-item-54321
-    * email: empty
+    * email: (empty)
     * password: auction
 * Create the sniper user
     * username: sniper
