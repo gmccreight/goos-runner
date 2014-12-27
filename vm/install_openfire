@@ -15,3 +15,6 @@ service openfire start
 #   done
 # )
 
+# This adds openfire to the rc directories so it will automatically start
+# when the machine is rebooted
+sudo update-rc.d openfire defaults
