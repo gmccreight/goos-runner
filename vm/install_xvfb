@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# The virtual frame buffer is used in this project to test the Swing GUI interface.
-
-sudo apt-get install Xvfb -y

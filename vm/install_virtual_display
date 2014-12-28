@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Install the X Virtual FrameBuffer so that we can run end-to-end tests, which
-# include some GUI tests
-
-sudo apt-get install xvfb -y

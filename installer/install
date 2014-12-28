@@ -1,0 +1,8 @@
+#!/bin/bash
+
+`dirname $0`/install_0100_java
+`dirname $0`/install_0200_mysql
+`dirname $0`/install_0300_xvfb
+`dirname $0`/install_0400_x11_apps
+`dirname $0`/install_0500_openfire
+`dirname $0`/install_0600_openfire_dev_database

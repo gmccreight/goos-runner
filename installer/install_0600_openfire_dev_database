@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mysqladmin -uroot --force drop openfire_dev 2>/dev/null
+mysqladmin -uroot create openfire_dev
+
+echo "grant all privileges on openfire_dev.* to myopenfireuser@localhost identified by 'myopenfirepass' ; flush privileges" | mysql -uroot openfire_dev

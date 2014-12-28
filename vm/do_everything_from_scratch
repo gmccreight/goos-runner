@@ -1,7 +1,0 @@
-#!/bin/bash
-
-vagrant destroy -f
-vagrant up
-
-vagrant ssh -c "cd /goos/vm/; ./install"
-vagrant ssh -c "cd /goos/vm/; ./run_tests"
