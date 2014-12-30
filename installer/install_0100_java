@@ -1,5 +1,31 @@
 #!/bin/bash
 
+# ----------------------------------------------------------------------------
+# openjdk
+#
 sudo apt-get install openjdk-7-jdk -y
 sudo apt-get install openjdk-7-jre -y
+
+# ----------------------------------------------------------------------------
+# oracle java
+#
+# I decided to try this instead of openjdk in case it helped with the issues I
+# was having with Swing and the XMPP server connection not resetting in the
+# end-to-end tests.  I know... seems like a reach, but I decided to try it
+# anyhow.
+# It ended up working exactly the same as the openjdk one did... unit tests
+# passed, but the end-to-end tests had the same issue as with openjdk.  Oh
+# well!  Since it didn't work, I'm commenting it out, but I will add this in
+# a commit and remove it later, so at least it will be in version control.
+# 
+# sudo apt-get install python-software-properties -y
+# sudo add-apt-repository ppa:webupd8team/java
+# sudo apt-get update
+# sudo apt-get install oracle-java7-installer -y
+# sudo apt-get install libxtst6 -y
+# sudo apt-get install libxi6 -y
+
+# ----------------------------------------------------------------------------
+# junit4
+#
 sudo apt-get install junit4 -y
