@@ -6,3 +6,6 @@
 `dirname $0`/install_0400_x11_apps
 `dirname $0`/install_0500_openfire
 `dirname $0`/install_0600_openfire_dev_database
+`dirname $0`/install_0700_phantomjs
+`dirname $0`/install_0750_casperjs
+`dirname $0`/install_0800_configure_openfire_with_casperjs

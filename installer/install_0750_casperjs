@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# CasperJS is used in conjunction with PhantomJS to script the configuration
+# of the Openfire server (which uses a web interface).
+
+sudo apt-get install nodejs -y
+
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+sudo apt-get install npm -y
+
+sudo npm install -g casperjs
