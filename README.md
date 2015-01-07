@@ -16,6 +16,8 @@ openfire XMPP server setup in your web browser)
 Now, on the host machine, open a link to http://localhost:9090/ and complete
 the web-based openfire server setup:
 
+Note... TODO... move these docs into the `_configure_openfire.js` file.
+
 * Use English
 * Use the default server settings:
     * 9090 and 9091 (using blowfish).  No property encryption key.
@@ -27,6 +29,9 @@ the web-based openfire server setup:
     * Email: admin@example.com (but login will actually be admin,
       not admin@example.com)
     * Password: adminpass
+
+Ok, this has not been automated yet:
+
 * Log in to the administration console
     * username: admin
     * password: adminpass
