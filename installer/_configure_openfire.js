@@ -28,7 +28,9 @@ casper.then(function() {
       selectElem.children[1].setAttribute("selected", "selected");
 
       document.getElementsByName("driver")[0].value = "com.mysql.jdbc.Driver";
-      document.getElementsByName("serverURL")[0].value = "jdbc:mysql://localhost:3306/openfire_dev?rewriteBatchedStatements=true";
+      document.getElementsByName("serverURL")[0].value =
+       "jdbc:mysql://localhost:3306/openfire_dev?" +
+       "rewriteBatchedStatements=true";
       
       document.getElementsByName("username")[0].value = "myopenfireuser";
       document.getElementsByName("password")[0].value = "myopenfirepass";
