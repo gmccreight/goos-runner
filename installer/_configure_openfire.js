@@ -7,8 +7,11 @@ casper.start('http://localhost:9090/', function() {
     // Welcome to Setup
     // * Use English
 
-    this.echo(this.getTitle());
-    this.click('#jive-setup-save');
+    // Without the wait, this occasionally fails
+    this.wait(1000, function() {
+      this.echo(this.getTitle());
+      this.click('#jive-setup-save');
+    });
 });
 
 casper.then(function() {
@@ -81,7 +84,7 @@ casper.then(function() {
 // // At this point, the setup is complete.  Now we need to log in and set up the
 // // auction item and the sniper user.
 
-casper.then(function() {
+casper.thenOpen('http://localhost:9090', function() {
     // Setup Complete!
     // Log in to the administration console
     //     * username: admin
