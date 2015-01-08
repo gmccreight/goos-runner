@@ -21,7 +21,7 @@ try it out in your host browser by setting up temporary port forwarding:
 
     vagrant ssh -- -N -L 9090:localhost:9090
 
-Then you can surf to http://localhost:9090 and work on the installation
+Then you can surf to http://localhost:9090 and do the configuration manually
 
 #### Debugging X11 and Swing (on Mac Yosemite)
 
