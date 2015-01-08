@@ -4,51 +4,26 @@ Run the Goos tests in a Vagrant box
 
 ### Installation
 
-First, start with the automated part of the installation
+Just run the script
 
-    ./do_automated_part_of_installation_from_scratch
+    ./do_everything_from_scratch
 
-Then setup a temporary port forwarding (which will allow you finish the
-openfire XMPP server setup in your web browser)
-
-    vagrant ssh -- -N -L 9090:localhost:9090
-
-Now, on the host machine, open a link to http://localhost:9090/ and complete
-the web-based openfire server setup:
-
-Note... TODO... move these docs into the `_configure_openfire.js` file.
-
-* Use English
-* Use the default server settings:
-    * 9090 and 9091 (using blowfish).  No property encryption key.
-* Use the MySQL database
-    * connection: `jdbc:mysql://localhost:3306/openfire_dev?rewriteBatchedStatements=true`
-    * user: myopenfireuser
-    * pass: myopenfirepass
-* Set up the administrator account
-    * Email: admin@example.com (but login will actually be admin,
-      not admin@example.com)
-    * Password: adminpass
-
-Ok, this has not been automated yet:
-
-* Log in to the administration console
-    * username: admin
-    * password: adminpass
-* Set up the auction-item-54321 user
-    * username: auction-item-54321
-    * email: (empty)
-    * password: auction
-* Create the sniper user
-    * username: sniper
-    * email: sniper@localhost
-    * password: sniper
-
-### Run tests after installation
+### Running the tests again
 
     vagrant ssh -c "cd /goos/; ./run_tests"
 
-### Debugging (on Mac Yosemite)
+### Debugging
+
+#### Debugging the Openfire installation
+
+If the automated Openfire server installation didn't go well, you can 
+try it out in your host browser by setting up temporary port forwarding:
+
+    vagrant ssh -- -N -L 9090:localhost:9090
+
+Then you can surf to http://localhost:9090 and work on the installation
+
+#### Debugging X11 and Swing (on Mac Yosemite)
 
 On the host machine, install XQuartz.
 
@@ -66,7 +41,6 @@ in the host, then SSH into Vagrant and run xclock to see that the X11 server
 connection is working.
 
     vagrant ssh -c "xclock"
-
 
 If that works, then you can run the tests using the host's X11 server.
 
