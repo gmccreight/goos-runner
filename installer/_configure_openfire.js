@@ -81,8 +81,8 @@ casper.then(function() {
     this.click('#jive-setup-save');
 });
 
-// // At this point, the setup is complete.  Now we need to log in and set up the
-// // auction item and the sniper user.
+// At this point, the setup is complete.  Now we need to log in and set up the
+// auction item and the sniper user.
 
 casper.thenOpen('http://localhost:9090', function() {
     // Setup Complete!
