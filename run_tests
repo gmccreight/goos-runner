@@ -31,10 +31,7 @@ function run_tests_in() {
   run_command "java org.junit.runner.JUnitCore $classes_to_test"
 }
 
-(
-  cd /goos
-
-  remove_class_files
+function setup_classpath() {
 
   export CLASSPATH="."
 
@@ -46,7 +43,15 @@ function run_tests_in() {
   CLASSPATH=$CLASSPATH:/goos/test/end-to-end
   CLASSPATH=$CLASSPATH:/goos/test/unit
 
+}
+
+function run_unit_tests() {
+
   run_tests_in /goos/test/unit/test/auctionsniper test.auctionsniper
+
+}
+
+function run_acceptance_tests() {
 
   if [ ! $USE_ACTUAL_X11 ]; then
     # Run the end-to-end tests in the X Virtual FrameBuffer, since they need to
@@ -62,6 +67,13 @@ function run_tests_in() {
     kill $! 2>/dev/null # kill the backgrounded Xvfb if it is still running
   fi
 
-  remove_class_files
+}
 
+(
+  cd /goos
+  remove_class_files
+  setup_classpath
+  run_unit_tests
+  run_acceptance_tests
+  remove_class_files
 )
