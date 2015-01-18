@@ -5,19 +5,14 @@ import auctionsniper.ui.MainWindow;
 
 public class ApplicationRunner {
 
-	protected static final String XMPP_HOSTNAME = "localhost";
-	protected static final String SNIPER_PASSWORD = "sniper";
-	protected static final String SNIPER_ID = "sniper";
-	public static final String SNIPER_XMPP_ID = "sniper@vagrant-ubuntu-trusty-64/Auction";
-	private AuctionSniperDriver driver;
-	
+  private AuctionSniperDriver driver;
 
-	public void startBiddingIn(final FakeAuctionServer auction) {
+	public void startIt() {
 		Thread thread = new Thread("Test Application") {
 			@Override
 			public void run() {
 				try {
-					Main.main(XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, auction.getItemId());
+					Main.main();
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -29,35 +24,16 @@ public class ApplicationRunner {
 		thread.start();
 		driver = new AuctionSniperDriver(1000);
 		driver.showSniperStatus(MainWindow.STATUS_JOINING);
-		
-		
-	}
-
-	public void showSniperHasLostAuction() {
-		driver.showSniperStatus(MainWindow.STATUS_LOST);
-		
 	}
 
 	public void stop() {
 		if (driver != null) {
 			driver.dispose();
 		}
-		
 	}
 
 	public void hasShownSnipperIsBidding() {
 		driver.showSniperStatus(MainWindow.STATUS_BIDDING);
-		
-	}
-
-	public void hasShownSnipperIsWinning() {
-		driver.showSniperStatus(MainWindow.STATUS_WINNING);
-		
-	}
-
-	public void showSniperHasWonAuction() {
-		driver.showSniperStatus(MainWindow.STATUS_WON);
-		
 	}
 
 }
