@@ -32,8 +32,6 @@ public class AuctionMessageTranslator implements MessageListener {
 					              event.increment(),
 					              event.isFrom(sniperId));
 		}
-
-
 	}
 	
 	public static class AuctionEvent {

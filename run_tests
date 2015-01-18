@@ -41,13 +41,6 @@ function setup_classpath() {
 
   CLASSPATH=$CLASSPATH:/goos/src
   CLASSPATH=$CLASSPATH:/goos/test/end-to-end
-  CLASSPATH=$CLASSPATH:/goos/test/unit
-
-}
-
-function run_unit_tests() {
-
-  run_tests_in /goos/test/unit/test/auctionsniper test.auctionsniper
 
 }
 
@@ -73,7 +66,6 @@ function run_acceptance_tests() {
   cd /goos
   remove_class_files
   setup_classpath
-  run_unit_tests
   run_acceptance_tests
   remove_class_files
 )
