@@ -27,15 +27,12 @@ public class AuctionSniperEndToEndTest {
 		auction.announceClosed();
 		application.showSniperHasLostAuction();
 	}
-	
+
 	@Test
-	public void sniperMakesAHigherBidButLoses() throws Exception {
+	public void sniperJoinsAuctionUntilAuctionClosesAgain() throws XMPPException, InterruptedException {
 		auction.startSellingItem();
 		application.startBiddingIn(auction);
 		auction.hasReceivedJoinRequestFromSniper(ApplicationRunner.SNIPER_XMPP_ID);
-		auction.reportPrice(1000, 98, "other bidder");
-		application.hasShownSnipperIsBidding();
-		auction.hasReceivedBid(1098, ApplicationRunner.SNIPER_XMPP_ID);
 		auction.announceClosed();
 		application.showSniperHasLostAuction();
 	}

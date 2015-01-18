@@ -55,9 +55,6 @@ public class Main {
 		main.joinAuction(connection, args[ARG_ITEM_ID]);
 	}
 	
-	
-
-
 	private void joinAuction(XMPPConnection connection, String itemId) throws XMPPException {
 		disconnectWhenUICloses(connection);
 		final Chat chat = connection.getChatManager().createChat(auctionId(itemId, connection), null);
@@ -68,7 +65,6 @@ public class Main {
 		auction.join();
 		
 	}
-				
 
 	private void disconnectWhenUICloses(final XMPPConnection connection) {
 		ui.addWindowListener(new WindowAdapter() {
@@ -85,7 +81,6 @@ public class Main {
 	private static String auctionId(String itemId, XMPPConnection connection) {
 		return String.format(AUCTION_ID_FORMAT, itemId, connection.getServiceName());
 	}
-
 
 	private static XMPPConnection connectTo(String hostname, String username,
 			String password) throws XMPPException {
@@ -143,9 +138,6 @@ public class Main {
 			showStatus(MainWindow.STATUS_WON);
 		}
 		
-		
-		
-		
 		private void showStatus(final String status) {
 			SwingUtilities.invokeLater(new Runnable() {
 				public void run() {
@@ -154,9 +146,6 @@ public class Main {
 			});
 		}
 
-		
 	}
-
-
 
 }

@@ -10,8 +10,6 @@ import com.objogate.wl.swing.gesture.GesturePerformer;
 
 import static org.hamcrest.Matchers.*;
 
-
-
 public class AuctionSniperDriver extends JFrameDriver {
 
 	@SuppressWarnings("unchecked")
