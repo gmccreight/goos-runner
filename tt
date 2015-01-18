@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vagrant ssh -c "cd /goos/; ./run_tests"
