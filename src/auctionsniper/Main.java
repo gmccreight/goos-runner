@@ -29,6 +29,9 @@ public class Main {
 	}
 
 	public static void main() throws Exception {
+    System.out.println("debug Main main 1");
+    System.out.println("debug Main main 2");
+    System.out.println("debug Main main 3");
 		Main main = new Main();
 	}
 
